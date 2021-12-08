@@ -1,0 +1,36 @@
+{% load static %}
+
+<<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Login</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	
+	
+	</head>
+	<body>
+		<div class="login-box">
+      
+      	<h1>Login</h1>
+      	<form method="POST" class="formulario">{% csrf_token %}
+				{{form.errors}}>
+        <!-- USERNAME INPUT -->
+        <label for="username">Usuario</label>
+        <input class="controls" type="text" name="username" placeholder="USUARIO">
+        <!-- PASSWORD INPUT -->
+        <label for="password">Contraseña</label>
+        <input class="controls" type="password" name="password" placeholder="CONTRASEÑA">
+        <input class="buttons" type="submit" name="" value="Ingresar">
+        <a href="{% url 'primera_vista' %}">Volver a Inicio</a>
+      </form>
+    </div>
+
+	
+
+	</body>
+</html>
+			
+			
+		
+
