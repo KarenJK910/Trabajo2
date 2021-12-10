@@ -5,7 +5,7 @@ from .models import Ods, Posts
 def Posts_Destacados(request):
 	p = Posts.objects.all()
 	ctx= {}
-	ctx['Posts'] = p
+	ctx['posts'] = p
 	ctx['titulo'] = 'Hola soy el titulo'
 
 	return render (request,'Base.html',ctx)

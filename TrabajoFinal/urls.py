@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 from . import views 
@@ -27,12 +29,8 @@ urlpatterns = [
     path('',views.Inicio, name='primera_vista'),
     path('login/', auth.LoginView.as_view(template_name="usuarios/login.html"), name='login'),
     path('logout/', auth.LogoutView.as_view(), name='logout'),
-
-
-
-
-
+    path('Nosotros/',views.Nosotros, name='Nosotros'),
     path('posts/',include('apps.posts.urls')),
     path('desafios/',include('apps.desafios.urls'))
     
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

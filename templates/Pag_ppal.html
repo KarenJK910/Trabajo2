@@ -1,0 +1,20 @@
+{% extends 'Base.html' %}
+
+{% block contenido %}
+	<h1 class="texto">{{ titulo }} </h1>
+
+	{% for i in posts %}
+		
+		<a href="{% url 'productos:detalle' a.pk %}"></a>
+		<p>
+			<b> {{i.Titulo}}</b>
+			<b> {{i.descripcion}}</b>
+			<b> {{i.Ods}}</b>
+
+			<img src="{{i.imagen.url}}">
+		</p>
+
+	{% endfor %}
+
+
+{% endblock contenido %}
