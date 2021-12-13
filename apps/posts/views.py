@@ -1,5 +1,9 @@
 from django.shortcuts import render
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 from .models import Ods, Posts
+from .forms import Formulario_alta_post
+
 
 # Create your views here.
 def Posts_Destacados(request):
@@ -9,6 +13,16 @@ def Posts_Destacados(request):
 	ctx['titulo'] = 'Hola soy el titulo'
 
 	return render (request,'Pag_ppal.html',ctx)
+
+
+class AltaPost(CreateView):
+	model= 'Posts'
+	template_name = 'Posts/alta.html'
+	form_class = Formulario_alta_post
+	success_url= reverse_lazy('posts: Posts_Destacados')
+
+
+
 
 
 

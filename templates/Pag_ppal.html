@@ -3,9 +3,13 @@
 {% block contenido %}
 	<h1 class="texto">{{ titulo }} </h1>
 
+
+<a href="{% url 'posts: alta_post' %}">CREAR POST</a>
+	
+
 	{% for i in posts %}
 		
-		<a href="{% url 'post:detalle' i.pk %}"></a>
+		<a href="{% url 'posts:Posts_Destacados' i.pk %}"></a>
 		<p>
 			<b> {{i.Titulo}}</b>
 			<b> {{i.descripcion}}</b>
