@@ -14,5 +14,7 @@ class Posts(models.Model):
 	Ods=models.ForeignKey(Ods, on_delete = models.CASCADE)
 	imagen= models.ImageField(upload_to='imagenes_posts', null=True)
 
+
+
 	def __str__(self):
 		return self.Titulo

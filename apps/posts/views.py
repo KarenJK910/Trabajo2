@@ -8,7 +8,7 @@ def Posts_Destacados(request):
 	ctx['posts'] = p
 	ctx['titulo'] = 'Hola soy el titulo'
 
-	return render (request,'Base.html',ctx)
+	return render (request,'Pag_ppal.html',ctx)
 
 
 

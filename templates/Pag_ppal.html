@@ -5,7 +5,7 @@
 
 	{% for i in posts %}
 		
-		<a href="{% url 'productos:detalle' a.pk %}"></a>
+		<a href="{% url 'post:detalle' i.pk %}"></a>
 		<p>
 			<b> {{i.Titulo}}</b>
 			<b> {{i.descripcion}}</b>
