@@ -2,15 +2,14 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .forms import UserRegisterForm
-
-#from .forms import CustomUserForm
-
+from apps.posts.models import Ods, Posts
 
 def Inicio(request):
-	return render(request,'Pag_ppal.html')
-
-def Nosotros(request):
-	return render(request, 'Nosotros.html')
+	p = Posts.objects.all()
+	ctx = {}
+	ctx['posts'] = p
+	
+	return render (request,'Base.html',ctx)
 
 
 def register(request):

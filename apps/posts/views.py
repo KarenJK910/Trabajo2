@@ -19,6 +19,7 @@ def Posts_Destacados(request):
 	ctx= {}
 	ctx['posts'] = p
 	ctx['titulo'] = 'Hola soy el titulo'
+	
 
 	return render (request,'Pag_ppal.html',ctx)
 
@@ -27,7 +28,8 @@ class AltaPost(LoginRequiredMixin,CreateView):
 	model= 'Posts'
 	template_name = 'Posts/alta.html'
 	form_class = Formulario_alta_post
-	success_url= reverse_lazy('posts: Posts_Destacados')
+	success_url= reverse_lazy('primera_vista')
+
 
 
 
