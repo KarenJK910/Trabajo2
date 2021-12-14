@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.contrib.auth import views as auth
 from django.conf import settings
 from django.conf.urls.static import static
+#from .views import SignUpView
 
 
 from . import views 
@@ -31,6 +32,11 @@ urlpatterns = [
     path('logout/', auth.LogoutView.as_view(), name='logout'),
     path('Nosotros/',views.Nosotros, name='Nosotros'),
     path('posts/',include('apps.posts.urls')),
-    path('desafios/',include('apps.desafios.urls'))
-    
+    path('desafios/',include('apps.desafios.urls')),
+    path('register/', views.register, name="register" )
+    #path('registro/', registro_usuario name="registro_usuario"),  
+    #path('accounts/',include('django.contrib.auth.urls')),
+    #path('accounts/',include('registration.urls')),
+    #path('signup/', SignUpView.as_view(), name="signup"),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
