@@ -7,6 +7,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from apps.usuarios.models import Usuario
 
 
 class UserRegisterForm(UserCreationForm):
@@ -15,6 +16,6 @@ class UserRegisterForm(UserCreationForm):
 	password2 = forms.CharField(label='Confirma Contraseña', widget=forms.PasswordInput)
 
 	class Meta:
-		model = User
+		model = Usuario
 		fields = ['username', 'email', 'password1', 'password2']
 		help_texts = {k:"" for k in fields }

@@ -4,8 +4,16 @@ from django.urls import reverse_lazy
 from .models import Ods, Posts
 from .forms import Formulario_alta_post
 
+# si la vista es basada en funcion
+from django.contrib.auth.decorators import login_required
+
+#si la vista es basada en clase
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
 
 # Create your views here.
+@login_required
 def Posts_Destacados(request):
 	p = Posts.objects.all()
 	ctx= {}
@@ -15,11 +23,21 @@ def Posts_Destacados(request):
 	return render (request,'Pag_ppal.html',ctx)
 
 
-class AltaPost(CreateView):
+class AltaPost(LoginRequiredMixin,CreateView):
 	model= 'Posts'
 	template_name = 'Posts/alta.html'
 	form_class = Formulario_alta_post
 	success_url= reverse_lazy('posts: Posts_Destacados')
+
+
+
+
+
+
+
+
+
+
 
 
 
