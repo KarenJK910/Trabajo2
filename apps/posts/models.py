@@ -20,3 +20,13 @@ class Posts(models.Model):
 
 	def __str__(self):
 		return self.nombre
+
+class Comentarios(models.Model):
+	Posts = models.ForeignKey(Posts, on_delete = models.CASCADE)
+	name = models.CharField(max_length=255)
+	body = models.TextField()
+	date_added = models.DateTimeField(auto_now_add=True)
+
+
+	def __str__(self):
+		return '%s - %s' % (self.posts.nombre, self.name)
