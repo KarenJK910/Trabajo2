@@ -31,7 +31,13 @@ class AltaPost(LoginRequiredMixin,CreateView):
 	success_url= reverse_lazy('primera_vista')
 
 
-
+def filtro(request, pk):
+	p = Posts.objects.filter(Ods = pk)
+	
+	ctx = {}
+	ctx['posts'] = p
+	
+	return render (request,'Posts/Filtro.html',ctx)	
 
 
 

@@ -8,8 +8,12 @@ def Inicio(request):
 	p = Posts.objects.all()
 	ctx = {}
 	ctx['posts'] = p
+
+	o = Ods.objects.all()
+	ctx['Ods'] = o
 	
 	return render (request,'Base.html',ctx)
+
 
 
 def register(request):
