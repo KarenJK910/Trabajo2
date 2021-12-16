@@ -40,7 +40,15 @@ def filtro(request, pk):
 	return render (request,'Posts/Filtro.html',ctx)	
 
 
+def DetallePost(request, pk):
 
+	p = Posts.objects.get(pk = pk)
+	ctx = {}
+	ctx['posts'] = p
+	
+
+	return render(request, 'Posts/detallePost.html', ctx)
+	
 
 
 
