@@ -62,8 +62,8 @@
                                     <div class="large text-muted">{{a.fecha_post}}</div>
                                     <div class="small text-muted">Objetivo:{{a.Ods}}</div>
                                     <h2 class="card-title h4">{{a.nombre}}</h2>
-                                    <p class="card-text">{{a.body}}</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
+                                   
+                                    <a class="btn btn-primary" href="{% url 'posts:detalle' a.pk %}">Leer más... →</a>
                                 </div>                                  
                             </div>
                         </div>
