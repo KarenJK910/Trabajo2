@@ -5,15 +5,17 @@
 	<head>
 		<meta charset="utf-8">
 		<title> Login </title>
+		{% load static %}
+
 		<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 	<body bgcolor="#add8e6">
 	</head>
 	<body>
 		<div class="login-box">
-      
+		<img src="{% static 'img/ll.png' %}" class="avatar" style="width: 100px; height: 100px; border-radius: 50%;position: absolute; top: -50px; left: calc(50% - 50px);">
       	<h1>Login</h1>
       	<form method="POST" class="formulario">{% csrf_token %}
-				{{form.errors}}>
+				{{form.errors}}
         <!-- USERNAME INPUT -->
         <label for="username"> Usuario </label>
         <input class="controls" type="text" name="username" placeholder="USUARIO">
@@ -26,6 +28,7 @@
     </div>
 	</body>
 </html>
+			
 			
 			
 		
