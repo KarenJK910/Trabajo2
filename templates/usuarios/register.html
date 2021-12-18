@@ -4,20 +4,35 @@
 	<meta charset="utf-8">
 	<title>Register</title>
 	
+
+
     <body bgcolor= #add8e6>
 
 </head>
 <body>
-	<h1>Registro de Usuario</h1>
+
+	<h1 style="text-align: center; padding-top: 100px; font-family: Arial;">Registro de Usuario</h1>
 	<div class="caja">
 		<form action="" method="post">{% csrf_token %}
+		<div style="margin-top: 0px;">	
+		{% for field in form %}
+			<div class="field_container" style="text-align: center; padding-top: 20px; font-family: Arial;">
+				{{ field.errors }}
+				{{ field.label_tag }} </br>
+				{{ field }}
+				
+			</div>	
+
+		{% endfor %}
 			
-			{{ form }}
+		</div>	
 			
-			<p>
+
+
+			<p style="text-align: center;">
 			<input type="submit" value="Registrar">
-			
 			</p>
+			
 
 		</form>
 

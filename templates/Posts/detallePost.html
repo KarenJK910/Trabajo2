@@ -19,8 +19,10 @@
             <p>{{ posts.fecha_post }}</p>
             <br>
             <br>
-            <a href="{% url 'primera_vista' %}"> VOLVER AL INICIO </a>
-
+            <form action="{% url 'primera_vista' %}" method="get" style="text-align: left;"><button type="submit">Volver al Inicio
+            </button>
+            </form>
+            
 
         </div>
 
