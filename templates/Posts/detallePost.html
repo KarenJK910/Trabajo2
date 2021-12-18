@@ -7,19 +7,19 @@
 <body>
     <section>
         <div>
-            <div align="center" >
-            <img class="card-img-top" src="{{posts.imagen.url}}" alt="..." / width="500px" height="500px">
+            <div align="center">
+            <img class="card-img-top" src="{{posts.imagen.url}}" alt="..." / width="600px" height="500px">
             </div>
             <br>
-            <h1>{{ posts.nombre }}</h1>
+            <h1 style="text-align: center; font-family: Arial;">{{ posts.nombre }}</h1>
             
-            <p>{{ posts.body }}</p>
+            <p style="font-family: Arial;">{{ posts.body }}</p>
+            <br>
+            
+            <p style="font-family: Arial;">{{ posts.fecha_post }}</p>
             <br>
             <br>
-            <p>{{ posts.fecha_post }}</p>
-            <br>
-            <br>
-            <form action="{% url 'primera_vista' %}" method="get" style="text-align: left;"><button type="submit">Volver al Inicio
+            <form action="{% url 'primera_vista' %}" method="get" style="text-align: center;"><button type="submit">Volver al Inicio
             </button>
             </form>
             
