@@ -3,7 +3,8 @@ from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from .models import Ods, Posts
 from .forms import Formulario_alta_post
-
+from .forms import NuevoComentario
+from .models import Comentarios
 # si la vista es basada en funcion
 from django.contrib.auth.decorators import login_required
 
@@ -40,12 +41,14 @@ def filtro(request, pk):
 	return render (request,'Posts/Filtro.html',ctx)	
 
 
-def DetallePost(request, pk):
+def DetallePost(request, pk ):
 
 	p = Posts.objects.get(pk = pk)
 	ctx = {}
 	ctx['posts'] = p
-	
+	o = Ods.objects.all()
+	ctx['Ods'] = o
+
 
 	return render(request, 'Posts/detallePost.html', ctx)
 	
