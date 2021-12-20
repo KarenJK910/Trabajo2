@@ -53,6 +53,7 @@
                             <p class="fs-5 mb-4">{{ posts.body }}</p>
                         </section>
                     </article>
+                <h2>Comentarios...</h2>
                 <!-- Comments section-->
                 <section class="mb-5">
                     {% for comment in comments %}
@@ -90,12 +91,16 @@
             </div>
     {% if user.is_authenticated %}        
     <h2>Hacer un nuevo comentario</h2> 
-            
+         
     <form id="myForm" method="POST">
         {{comment_form.as_p}}
         {% csrf_token %}
-        <button type='submit' class="btn - btn-primary btn-lg btn-block"> Sumbit </button>
+        <button type='submit' class="btn - btn-primary btn-lg btn-block"> Comentar </button>
     </form>
+    {% else %}
+    <h3>Inicia sesión para comentar.</h3>
+    <a class="nav-link" href="{% url 'login' %}">Login</a>
+    <a class="nav-link" href="{% url 'register' %}">Registrate</a>
     {% endif %}
         <!-- Footer-->
         <footer class="py-5 bg-dark">
