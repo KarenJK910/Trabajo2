@@ -1,5 +1,6 @@
 from django import forms
 from django.db.models.fields import CommaSeparatedIntegerField
+from django.forms import widgets
 from .models import Posts
 from django import forms
 from .models import Comentarios
@@ -19,10 +20,15 @@ class Formulario_alta_post(forms.ModelForm):
 
 class NuevoComentario(forms.ModelForm):
 	
-
 	class Meta:
 		model = Comentarios
-		fields= '__all__'
+		fields= ( "name", "body","Posts")
+		widgets = {
+			"name": forms.TextInput(attrs={"class": "col-sm-12"}),
+		    "body": forms.Textarea(attrs={"class": "col-sm-12"}),
+
+		}
+
 
 
 

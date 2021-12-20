@@ -38,6 +38,8 @@ def filtro(request, pk):
 	
 	ctx = {}
 	ctx['posts'] = p
+	o = Ods.objects.all()
+	ctx['Ods'] = o
 	
 	return render (request,'Posts/Filtro.html',ctx)	
 
@@ -51,13 +53,13 @@ def DetallePost(request, pk):
 	ctx['Ods'] = o
 	comments = p.comments.filter(status=True)
 	user_comment = None
-	if request.method == 'Post':
-		comment_form = NuevoComentario(request.POST)
+	if request.method == 'POST':
+		comment_form = NuevoComentario(request.POST,)
 		if comment_form.is_valid():
 			user_comment = comment_form.save(commit=False)
-			user_comment.p = p
+			user_comment.p = p 		
 			user_comment.save()
-			return HttpResponseRedirect('primera_vista')
+			return reverse_lazy('detalle')
 	else:
 		comment_form = NuevoComentario()
 	return render(request, 'Posts/detallePost.html', {'p': p, 'comments': user_comment, 'comments': comments, 'comment_form': comment_form, 'posts': p, 'Ods': o})
