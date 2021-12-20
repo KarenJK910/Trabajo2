@@ -1,7 +1,7 @@
 from django.db import models
 
 class Ods(models.Model):
-	nombre = models.CharField(max_length = 30)
+	nombre = models.CharField(max_length = 255)
 	descripcion = models.TextField(null = True)
 	imagen = models.ImageField(upload_to='imagenes_ods', null=True)
 

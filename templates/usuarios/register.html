@@ -35,7 +35,9 @@
 			
 
 		</form>
-
+		<form action="{% url 'primera_vista' %}" method="get" style="text-align: center;">
+ 			<button type="submit">Volver al Inicio<br /></button></form>
+			
 	</div>
 	{% if messages %}
 			{% for message in messages %}

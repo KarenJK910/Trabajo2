@@ -59,7 +59,7 @@ def DetallePost(request, pk):
 			user_comment = comment_form.save(commit=False)
 			user_comment.p = p 		
 			user_comment.save()
-			return reverse_lazy('detalle')
+			
 	else:
 		comment_form = NuevoComentario()
 	return render(request, 'Posts/detallePost.html', {'p': p, 'comments': user_comment, 'comments': comments, 'comment_form': comment_form, 'posts': p, 'Ods': o})
