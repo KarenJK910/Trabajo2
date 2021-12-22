@@ -18,12 +18,13 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'primera_vista' %}">Inicio</a></li>
                         {% if user.is_authenticated %}
-                           
+                            <li class="nav-item"><a class="nav-link" >Bienvenid@ {{ user.username }}</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'primera_vista' %}">Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Cerrar Sesion</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'posts:alta_post' %}">Crear Post</a></li>
                         {% else %}
+                             <li class="nav-item"><a class="nav-link" href="{% url 'primera_vista' %}">Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Registrate</a></li>
                         {% endif %}
@@ -53,7 +54,14 @@
                             <p class="fs-5 mb-4">{{ posts.body }}</p>
                         </section>
                     </article>
-                <h2>Comentarios...</h2>
+                    <figure><strong>      
+                        <blockquote class="blockquote">
+                          <p>Sección de comentarios</p></strong>
+                        </blockquote>
+                        <figcaption class="blockquote-footer">
+                          Su opinión nos importa
+                        </figcaption>
+                      </figure>
                 <!-- Comments section-->
                 <section class="mb-5">
                     {% for comment in comments %}
@@ -90,7 +98,7 @@
                 </div>
             </div>
     {% if user.is_authenticated %}        
-    <h2>Hacer un nuevo comentario</h2> 
+    <h2 class="display-5">Hacer un nuevo comentario</h2> 
          
     <form id="myForm" method="POST">
         {{comment_form.as_p}}
@@ -98,7 +106,7 @@
         <button type='submit' class="btn - btn-primary btn-lg btn-block"> Comentar </button>
     </form>
     {% else %}
-    <h3>Inicia sesión para comentar.</h3>
+    <h3 class="Display-5">Inicia sesión para poder comentar.</h3>
     <a class="nav-link" href="{% url 'login' %}">Login</a>
     <a class="nav-link" href="{% url 'register' %}">Registrate</a>
     {% endif %}
